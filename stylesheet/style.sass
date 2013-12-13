@@ -1,0 +1,55 @@
+$body-context: 16
+
+@function rem($pixels, $context: $body-context)
+	@return #{$pixels / $context}rem
+
+.clock
+	position: absolute
+	height: rem(500)
+	width: rem(500)
+	left: 50%
+	top: 50%
+	margin-left: rem(-250)
+	margin-top: rem(-250)
+	border: rem(3) solid black
+	border-radius: 50%
+
+	.pointer
+		position: absolute
+		height: rem(40)
+		width: rem(10)
+		background: indigo
+
+		&.twelve
+			left: 50%
+			top: 0
+		&.three
+			-webkit-transform: rotate(90deg)
+			margin-top: rem(-15)
+			right: rem(14)
+			top: 50%
+		&.six
+			-webkit-transform: rotate(180deg)
+			left: 50%
+			bottom: 0
+		&.nine
+			-webkit-transform: rotate(270deg)
+			margin-top: rem(-15)
+			left: rem(14)
+			top: 50%
+
+	.seconds
+		position: absolute
+		height: 50%
+		width: rem(10)
+		left: 50%
+		margin-left: rem(-10)
+		background: red
+		-webkit-animation: 60s clockwork infinite linear
+		-webkit-transform-origin: 100% 100%
+
+@-webkit-keyframes clockwork
+	0%
+		-webkit-transform: rotate(0deg)
+	100%
+		-webkit-transform: rotate(360deg)

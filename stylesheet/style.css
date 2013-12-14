@@ -1,3 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #222222;
+}
+
 .clock {
   position: absolute;
   height: 31.25rem;
@@ -6,45 +16,81 @@
   top: 50%;
   margin-left: -15.625rem;
   margin-top: -15.625rem;
-  border: 0.1875rem solid black;
+  border: 0.125rem solid #bbbbbb;
   border-radius: 50%;
+  background: #eeeeee;
 }
-.clock .pointer {
+.clock .mark {
   position: absolute;
   height: 2.5rem;
-  width: 0.625rem;
-  background: indigo;
+  width: 1.25rem;
+  background: black;
 }
-.clock .pointer.twelve {
+.clock .mark.north {
+  margin-left: -0.625rem;
   left: 50%;
-  top: 0;
+  top: 2%;
 }
-.clock .pointer.three {
+.clock .mark.east {
   -webkit-transform: rotate(90deg);
-  margin-top: -0.9375rem;
-  right: 0.875rem;
+  margin-top: -1.25rem;
+  right: 4%;
   top: 50%;
 }
-.clock .pointer.six {
+.clock .mark.south {
   -webkit-transform: rotate(180deg);
+  margin-left: -0.625rem;
   left: 50%;
-  bottom: 0;
+  bottom: 2%;
 }
-.clock .pointer.nine {
+.clock .mark.west {
   -webkit-transform: rotate(270deg);
-  margin-top: -0.9375rem;
-  left: 0.875rem;
+  margin-top: -1.25rem;
+  left: 4%;
   top: 50%;
 }
 .clock .seconds {
   position: absolute;
+  height: 70%;
+  width: 0.25rem;
+  left: 50%;
+  margin-left: -0.125rem;
+  background: red;
+  -webkit-animation: 0.5s clockwork infinite linear;
+  -webkit-transform-origin: 50% 72%;
+}
+.clock .minutes {
+  position: absolute;
+  height: 70%;
+  width: 0.625rem;
+  left: 50%;
+  margin-left: -0.3125rem;
+  background: black;
+  -webkit-animation: 30s clockwork infinite linear;
+  -webkit-transform-origin: 50% 72%;
+}
+.clock .hours {
+  position: absolute;
   height: 50%;
   width: 0.625rem;
   left: 50%;
-  margin-left: -0.625rem;
-  background: red;
-  -webkit-animation: 60s clockwork infinite linear;
-  -webkit-transform-origin: 100% 100%;
+  top: 20%;
+  margin-left: -0.3125rem;
+  background: black;
+  -webkit-animation: 360s clockwork infinite linear;
+  -webkit-transform-origin: 50% 61%;
+}
+.clock .seconds-detail {
+  position: absolute;
+  width: 1.875rem;
+  height: 1.875rem;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.9375rem;
+  margin-left: -0.9375rem;
+  background: #eeeeee;
+  border: 0.3125rem solid red;
+  border-radius: 50%;
 }
 
 @-webkit-keyframes clockwork {

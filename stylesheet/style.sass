@@ -1,0 +1,97 @@
+$body-context: 16
+
+@function rem($pixels, $context: $body-context)
+	@return #{$pixels / $context}rem
+
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+body
+	background: #222
+
+.clock
+	position: absolute
+	height: rem(500)
+	width: rem(500)
+	left: 50%
+	top: 50%
+	margin-left: rem(-250)
+	margin-top: rem(-250)
+	border: rem(2) solid #bbb
+	border-radius: 50%
+	background: #eee
+
+	.mark
+		position: absolute
+		height: rem(40)
+		width: rem(20)
+		background: black
+		
+		&.north
+			margin-left: rem(-10)
+			left: 50%
+			top: 2%
+		&.east
+			-webkit-transform: rotate(90deg)
+			margin-top: rem(-20)
+			right: 4%
+			top: 50%
+		&.south
+			-webkit-transform: rotate(180deg)
+			margin-left: rem(-10)
+			left: 50%
+			bottom: 2%
+		&.west
+			-webkit-transform: rotate(270deg)
+			margin-top: rem(-20)
+			left: 4%
+			top: 50%
+
+	.seconds
+		position: absolute
+		height: 70%
+		width: rem(4)
+		left: 50%
+		margin-left: rem(-2)
+		background: red
+		-webkit-animation: 0.5s clockwork infinite linear
+		-webkit-transform-origin: 50% 72%
+	.minutes
+		position: absolute
+		height: 70%
+		width: rem(10)
+		left: 50%
+		margin-left: rem(-5)
+		background: black
+		-webkit-animation: 30s clockwork infinite linear
+		-webkit-transform-origin: 50% 72%
+	.hours
+		position: absolute
+		height: 50%
+		width: rem(10)
+		left: 50%
+		top: 20%
+		margin-left: rem(-5)
+		background: black
+		-webkit-animation: 360s clockwork infinite linear
+		-webkit-transform-origin: 50% 61%
+
+	.seconds-detail
+		position: absolute
+		width: rem(30)
+		height: rem(30)
+		top: 50%
+		left: 50%
+		margin-top: rem(-15)
+		margin-left: rem(-15)
+		background: #eee
+		border: rem(5) solid red
+		border-radius: 50%
+
+@-webkit-keyframes clockwork
+	0%
+		-webkit-transform: rotate(0deg)
+	100%
+		-webkit-transform: rotate(360deg)
